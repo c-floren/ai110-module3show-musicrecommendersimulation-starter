@@ -16,18 +16,27 @@ def main() -> None:
     songs = load_songs("data/songs.csv") 
 
     # Starter example profile
-    user_prefs = {"genre": "pop", "mood": "happy", "energy": 0.8}
+    user_prefs = {"genre": "jazz", "mood": "nostalgic", "energy": 0.4}
 
     recommendations = recommend_songs(user_prefs, songs, k=5)
 
-    print("\nTop recommendations:\n")
-    for rec in recommendations:
-        # You decide the structure of each returned item.
-        # A common pattern is: (song, score, explanation)
-        song, score, explanation = rec
-        print(f"{song['title']} - Score: {score:.2f}")
-        print(f"Because: {explanation}")
-        print()
+    print("\n" + "=" * 50)
+    print("       MUSIC RECOMMENDATIONS")
+    print("=" * 50 + "\n")
+
+    for i, rec in enumerate(recommendations, 1):
+        song, score, reasons = rec
+        print(f"┌─ #{i} ─────────────────────────────────────")
+        print(f"│ Title:  {song['title']}")
+        print(f"│ Score:  {score:.2f}")
+        print(f"│ Reasons:")
+        # Handle reasons as either a string or list
+        if isinstance(reasons, list):
+            for reason in reasons:
+                print(f"│   • {reason}")
+        else:
+            print(f"│   • {reasons}")
+        print(f"└" + "─" * 40 + "\n")
 
 
 if __name__ == "__main__":

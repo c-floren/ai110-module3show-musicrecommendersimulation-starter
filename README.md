@@ -1,5 +1,7 @@
 # 🎵 Music Recommender Simulation
 
+![Music Recommendation System](images/MusicRecommendation.png)
+
 ## Project Summary
 
 In this project you will build and explain a small music recommender system.
@@ -17,17 +19,24 @@ Replace this paragraph with your own summary of what your version does.
 
 ## How The System Works
 
-Explain your design in plain language.
+Real-world recommenders like Spotify use two main approaches: **collaborative filtering** (learning what similar users like) and **content-based filtering** (matching songs to user taste profiles). Our system uses content-based filtering because it's simpler, more transparent, and easier to explain.
 
-Some prompts to answer:
+**Key features:**
+- **Songs:** genre, mood, energy (0–1), tempo, danceability, acousticness
+- **User profile:** favorite genre, favorite mood, target energy, acoustic preference
 
-- What features does each `Song` use in your system
-  - For example: genre, mood, energy, tempo
-- What information does your `UserProfile` store
-- How does your `Recommender` compute a score for each song
-- How do you choose which songs to recommend
+**Scoring Algorithm:** Each song is scored on a scale of 0-100 using weighted features:
+- Genre match (40%): 100 if exact match, 0 otherwise
+- Mood match (30%): 100 if exact match, 0 otherwise  
+- Energy closeness (15%): 100 minus the absolute difference from target energy (scaled to 0-100)
+- Danceability (10%): Based on closeness to a neutral target of 0.7
+- Acousticness (5%): 100 if user likes acoustic and song is acoustic (>0.6), otherwise 100 minus acousticness value
 
-You can include a simple diagram or bullet list if helpful.
+Songs are ranked by total score and the top 5 are recommended.
+
+**Potential Bias Note:** The system may exhibit bias by only rewarding exact genre and mood matches, potentially limiting recommendation diversity and creating filter bubbles. Numerical features assume universal targets (e.g., danceability 0.7), which may not suit all users, and the categorical nature of genre/mood could disadvantage niche or emerging categories.
+
+This approach reveals how real recommenders work while staying transparent. We can explain exactly why each song was recommended.
 
 ---
 
