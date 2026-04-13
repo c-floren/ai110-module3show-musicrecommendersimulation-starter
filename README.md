@@ -113,6 +113,18 @@ Write 1 to 2 paragraphs here about what you learned:
 
 ---
 
+## Screenshots
+
+![Screenshot 1](images/Screenshot%202026-04-12%20194431.png)
+![Screenshot 2](images/Screenshot%202026-04-12%20194445.png)
+![Screenshot 3](images/Screenshot%202026-04-12%20194455.png)
+![Screenshot 4](images/Screenshot%202026-04-12%20194505.png)
+![Screenshot 5](images/Screenshot%202026-04-12%20194513.png)
+![Screenshot 6](images/Screenshot%202026-04-12%20194521.png)
+![Screenshot 7](images/Screenshot%202026-04-12%20194529.png)
+
+---
+
 ## 7. `model_card_template.md`
 
 Combines reflection and model card framing from the Module 3 guidance. :contentReference[oaicite:2]{index=2}  
